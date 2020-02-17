@@ -1,0 +1,27 @@
+{
+  "name": "inju",
+  "version": "1.0.0",
+  "description": "liken",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NinaPajonk/Dating_app_Feature.git"
+  },
+  "keywords": [
+    "Dating",
+    "Feature"
+  ],
+  "author": "Nina Pajonk",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NinaPajonk/Dating_app_Feature/issues"
+  },
+  "homepage": "https://github.com/NinaPajonk/Dating_app_Feature#readme",
+  "dependencies": {
+    "camelcase": "^5.3.1",
+    "express": "^4.17.1"
+  }
+}
