@@ -1,0 +1,83 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+/*.............mobile first................*/
+
+.lobbie {
+    width: 100px;
+
+}
+
+/*.......Avatar foto....*/
+main img {
+    width: 300px;
+    display: block;
+    margin: auto;
+    padding-top: 10px;
+    position: relative;
+}
+
+/*.......onderste knoppen....*/
+main div img {
+    width: 50px;
+    padding: 15px;
+
+}
+
+div {
+    position: absolute;
+    top: 72%;
+    left: 20%;
+}
+
+main h1 {
+    color: white;
+    text-align: center;
+    position: absolute;
+    margin-top: -80px;
+    margin-left: 70px;
+    font-size: 40px;
+    font-family: monospace;
+}
+
+main h2 {
+    color: white;
+    font-size: 25px;
+    margin-top: -40px;
+    position: absolute;
+    margin-left: 120px;
+    font-family: monospace;
+}
+
+
+/*.............matches................*/
+.matches {
+    margin-top: -400px;
+    margin-bottom: 150px;
+    position: relative;
+}
+
+.matches:hover {  transform: skew(20deg);
+ animation: shake 2s infinite;
+  animation-direction: alternate;
+ }
+
+
+
+/*.............Tabbalk................*/
+.tab {
+    width: 40px;
+    margin: 25px;
+}
+
+footer {
+    border-top: 0.5px solid;
+    border-color: yellow;
+    margin-top: 10px;
+}
+
+/*.............responsive desktop................*/
+
+@media screen and (min-width: 600px) {}
