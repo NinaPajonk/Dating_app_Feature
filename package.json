@@ -2,9 +2,13 @@
   "name": "inju",
   "version": "1.0.0",
   "description": "liken",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "nodemon": "nodemon server.js",
+    "start": "node server.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "repository": {
     "type": "git",
@@ -21,9 +25,12 @@
   },
   "homepage": "https://github.com/NinaPajonk/Dating_app_Feature#readme",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "camelcase": "^5.3.1",
     "ejs": "^3.0.1",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "save-dev": "0.0.1-security",
+    "slug": "^2.1.1"
   },
   "devDependencies": {
     "babel-eslint": "^9.0.0",
@@ -37,6 +44,7 @@
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.18.3",
     "eslint-plugin-react-hooks": "^1.7.0",
+    "nodemon": "^2.0.2",
     "prettier": "^1.19.1"
   }
 }
