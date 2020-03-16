@@ -49,5 +49,5 @@ function add(req, res) {
 
   // route naar ejs. Renderen
   app.get('/', (req, res) => res.render('detail.ejs', { data }));
-
+  
   app.listen(port,() => console.log('Example app listening on port' + port));
