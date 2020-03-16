@@ -4,6 +4,7 @@ const port = 3000;
 const path = require('path');
 const slug = require('slug');
 const bodyParser = require('body-parser');
+const multer  = require('multer');
 
 
 // object aanmaken
@@ -12,6 +13,7 @@ const data = {
   leeftijd: 20,
   gender: 'vrouw',
 };
+
 express();
 app.use(bodyParser.urlencoded({ extended: true }));
 // app.get('/', movies);
@@ -48,4 +50,4 @@ function add(req, res) {
   // route naar ejs. Renderen
   app.get('/', (req, res) => res.render('detail.ejs', { data }));
 
-  app.listen(port,() => console.log('Example app listening on port' + port))
+  app.listen(port,() => console.log('Example app listening on port' + port));
