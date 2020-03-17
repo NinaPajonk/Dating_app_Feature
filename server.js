@@ -12,6 +12,8 @@ require('dotenv').config()
 
 // Database
 let db = null
+let userid = null;
+let userDatabase = null;
 let url = 'mongodb+srv://NPajonk:Nina%40pajonk25@cluster0-ofs74.mongodb.net/test?authSource=admin&replicaSet=Cluster0-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true'
 
 mongo.MongoClient.connect(url, function(err, client){
@@ -21,13 +23,18 @@ mongo.MongoClient.connect(url, function(err, client){
   db = client.db(process.env.DB_NAME)
 })
 
-//object aanmaken
-const data = {
-  id: 'gebruiker1',
-  name: 'Eliza Meijer ',
-  age: '24',
-  bio: 'Hi, ik ben Eliza en ik ben een blogger altijd op zoek naar avontuur. '
+function startPage(req, res, next) {
+  res.render("start.ejs");
 }
+app.get("/login", startPage);
+
+//object aanmaken
+// const data = {
+//   id: 'gebruiker1',
+//   name: 'Eliza Meijer ',
+//   age: '24',
+//   bio: 'Hi, ik ben Eliza en ik ben een blogger altijd op zoek naar avontuur. '
+// }
 
 // 
 express();
@@ -35,9 +42,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view enigine', 'ejs');
 app.set('views', 'view');
 app.use('/static', express.static('static'));
-
-
-
 
   //home pagina
   app.get('/index', (req, res) => res.sendfile(path.join(__dirname + '/static/index.html')))
