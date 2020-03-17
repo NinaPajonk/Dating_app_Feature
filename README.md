@@ -15,5 +15,5 @@ Hoe te installeren:
 - npm run start
 Wanneer je deze stappen hebt gevolgd, kan je in de browser typen: http://localhost:3000/
 
-Database
-[Templating](https://github.com/NinaPajonk/Dating_app_Feature/blob/master/Doc/Images/IMG_0087.jpg)
+Hoe mijn database eruit ziet:
+[Database](https://github.com/NinaPajonk/Dating_app_Feature/blob/master/Doc/Images/Database.png)
