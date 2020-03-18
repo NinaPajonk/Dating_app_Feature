@@ -7,76 +7,93 @@
 
 .lobbie {
     width: 120px;
-    margin-top: 10%;
+    margin: auto;
+    position: relative;
+    display: block;
 
 }
 
 /*.......Avatar foto....*/
-main img {
+.avatar1 {
     width: 300px;
     display: block;
     margin: auto;
     padding-top: 10px;
     position: relative;
 }
+/*........button...........*/
+.button4 {
+  
+display: block;
+position: relative;
+width: 20px;
+background-color:transparent;
+border-radius: 40px;
+bottom: 155px;
+margin-left: 350px;
+
+}
 
 /*.......onderste knoppen....*/
-main div img {
-    width: 40px;
+main img {
+    width: 45px;
     position: relative;
+
 }
 
-div {
-    display: -webkit-flex;
-    display: flex;
-    -webkit-flex-flow: row wrap;
-    flex-flow: row wrap;
+.button1,
+.button2,
+.button3 {
+display: inline-block;
+bottom: 140px;
 position: relative;
+background-color:transparent;
+margin: 50px;
 }
+
 
 main h1 {
-    color: white;
+    color: black;
     text-align: center;
     position: relative;
-
-    font-size: 40px;
+    font-size: 22px;
     font-family: monospace;
+    bottom: 145px;
+
 }
 
 main h2 {
-    color: white;
-    font-size: 25px;
+    color: black;
+    font-size: 16px;
     position: relative;
 text-align: center;
     font-family: monospace;
+    bottom: 140px;
+
 }
 
-
-/*.............matches................*/
-.matches {
-    margin-top: -400px;
-    margin-bottom: 150px;
+.biobalk {
     position: relative;
+bottom: 90px;
+width:280px;
+display: block;
+margin: auto;
+
+
+}
+.biobalkGroot {
+    position: relative;
+bottom: 160px;
+width:280px;
+display: block;
+margin: auto;
+
+
 }
 
-.matches:hover {  transform: skew(20deg);
- animation: shake 2s infinite;
-  animation-direction: alternate;
- }
 
 
 
-/*.............Tabbalk................*/
-.tab {
-    width: 40px;
-    margin: 25px;
-}
-
-footer {
-    border-top: 0.5px solid;
-    border-color: yellow;
-    margin-top: 15px;
-}
 
 /*.............responsive desktop................*/
 

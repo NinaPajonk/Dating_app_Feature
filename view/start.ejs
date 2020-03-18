@@ -7,14 +7,21 @@
     <title>Document</title>
 </head>
 <body>
-    <title>Movies - My movie website</title>
-<h1>Movies</h1>
-<% for (var index = 0; index < data.length; index++) { %>
-<h2><a href="/<%= data[index].id %>"><%= data[index].title %></a></h2>
-<p><%= data[index].plot %></p>
-<% } %>
-<p>
-  <a href=/add>Add a movie</a>
-</p>
+  <img class="lobbie" src="./static/images/logo.png" alt="Logo">
+  <title>Welkom<%= data.firstName %>!</title>
+
+  <form action="/login" method="post">
+    <label> 
+        <select name="datingUsers">
+            <option value="gebruiker1">Eliza Meijer</option>
+            <option value="gebruiker2"> Merel Mendel</option>
+            <option value="gebruiker3">Sophie van Basten</option>
+            <option value="gebruiker4">Lara Vermeulen</option>
+            <option value="gebruiker5">Cheyenne van Ommen</option>
+
+        </select>
+    </label>
+    <input type="submit">
+</form>
 </body>
 </html>

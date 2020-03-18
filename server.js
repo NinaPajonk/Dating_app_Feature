@@ -12,8 +12,6 @@ require('dotenv').config()
 
 // Database
 let db = null
-let userid = null;
-let userDatabase = null;
 let url = 'mongodb+srv://NPajonk:Nina%40pajonk25@cluster0-ofs74.mongodb.net/test?authSource=admin&replicaSet=Cluster0-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true'
 
 mongo.MongoClient.connect(url, function(err, client){
@@ -22,6 +20,8 @@ mongo.MongoClient.connect(url, function(err, client){
   }
   db = client.db(process.env.DB_NAME)
 })
+
+db.collection('datingUsers').find({firstName: "Eliza"});
 
 function startPage(req, res, next) {
   res.render("start.ejs");
@@ -36,6 +36,8 @@ app.get("/login", startPage);
 //   bio: 'Hi, ik ben Eliza en ik ben een blogger altijd op zoek naar avontuur. '
 // }
 
+
+
 // 
 express();
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -47,12 +49,15 @@ app.use('/static', express.static('static'));
   app.get('/index', (req, res) => res.sendfile(path.join(__dirname + '/static/index.html')))
 
   // route naar about pagina
-  app.get('/about', (req, res) =>
-    res.sendfile(path.join(`${__dirname}/static/about.html`))
+  app.get('/about', (req, res) => res.sendfile(path.join(`${__dirname}/static/about.html`))
+  );
+
+  // route naar detail pagina
+  app.get('/detail', (req, res) => res.sendfile(path.join(`${__dirname}/static/detail.html`))
   );
 
   // route naar ejs. Renderen
-  app.get('/', (req, res) => res.render('detail.ejs', { data }));
+  app.get('/detail1', (req, res) => res.render('detail.ejs', { data }));
 
   // route naar geliked Renderen
   app.get('/', (req, res) => res.render('match.ejs', { data }));
