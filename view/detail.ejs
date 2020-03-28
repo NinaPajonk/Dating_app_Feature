@@ -4,18 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="STYLESHEET" href="./static/styleProfiel.css" type="text/css"> 
+    <title>Find love</title>
 </head>
 <body>
+  <header> 
   <img class="lobbie" src="./static/images/logo.png" alt="Logo">
-  <title>Welkom<%= data.firstName %>!</title>
- <h1>  <%= data.lastName &></h1>
- <h2>  <%= data.age &></h2>
-   <%= data.photo &> 
- <p>  <%= data.bio &> </p>
+  <nav>
+    <a href="" img src="../static/images/user.png" ></a>
+    <a href="match.ejs" img src="../static/images/like.png" ></a>
+  </nav>
+</header>
+<main>
+  <ul>
+
+  <% for (let i = 0; i < data.length; i++) { %>
+
+  <li>
+  <figure>
+
+  <a href="/profile/<%= data[i].id %>">
+
+    <figure> 
+    <img src="../static/images/data[i].photo %>" alt="profielFotos">
 
 
-    
+  </a>  
+
+  <figcaption>
+  <h2><%= data[i].firstName + ' ' + data[i].lastName %></h2>
+  <h3><%= data[i].age %> </h3>
+  <p><%= data[i].bio %></p>
+
+  <form action="/<%= data[i].id %>" method="post">
+  <button data-id="<%= data[i].id %>" class="likebut" type="button"> <img src="/static/images/no.png" alt="DislikeButton"> </button>
+  <button class="likebut" type="button"> <img src="/static/images/undo.png" alt="TerugButton"> </button>
+  <button data-id="<%= data[i].id %>" class="likebut" type="button"> <img src="/static/images/like.png" alt="LikeButton"> </button>
+                    
+  </form>
+
+  </figcaption>
+ </figure>
+  </li>
+
+  <% } %>
+
+  </ul>
+</main>
+
+<footer>
+ 
+</footer>
+<script src="../static/js/swipen.js"></script>
 
 </body>
 </html>

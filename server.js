@@ -51,12 +51,24 @@ app.get('/detail', (req, res) =>
 );
 
 // route naar ejs. Renderen
-app.get('/detail1', (req, res) => res.render('detail.ejs', { data }));
-
+// app.get('/detail1', (req, res) => res.render('detail.ejs', { data }));
+app.get('/findlove',gebruiker1)
+// function pagina gebruiker 1
+function gebruiker1 (req, res){
+  db.collection('Users').find({}).toArray(done)
+  function done(err, data){
+    if (err){
+      next (err)
+    } else {
+      console.log(data);
+    res.render('detail.ejs',{data: data})
+    }
+    }
+  }
 // route naar geliked Renderen
 app.get('/', (req, res) => res.render('match.ejs', { data }));
 
-app.get('/test',gebruikers)
+app.get('/start',gebruikers)
 
 // function db
 function gebruikers (req, res){
@@ -67,6 +79,19 @@ function gebruikers (req, res){
     } else {
       console.log(data);
     res.render('add.ejs',{data: data})
+    }
+    }
+  }
+  app.get('/matches',overzichtMatches)
+// function pagina gebruiker 1
+function overzichtMatches (req, res){
+  db.collection('Users').find({}).toArray(done)
+  function done(err, data){
+    if (err){
+      next (err)
+    } else {
+      console.log(data);
+    res.render('match.ejs',{data: data})
     }
     }
   }

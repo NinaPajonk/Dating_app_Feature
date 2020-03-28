@@ -1,17 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Matches</title>
-</head>
-<body>
-    <h1> <%= data.firstName %> </h1>
-    <h2> <%= data.lastName %> </h2>
-    <h3> <%= data.age %> </h3>
-    <p> <%= data.bio %> </p>
-    <button>Chat</button>
-    <button>Keep playin</button>
-</body>
-</html>                                                                 
+<link rel="STYLESHEET" href="./static/styleProfiel.css" type="text/css"> 
+<h1>Matches:</h1>
+
+<% for (var index = 0; index < data.length; index++){ %>
+<ul class="matches"> 
+
+ <a href="">  <button> Chat</button><h2><%= data[index].firstName %> </h2>
+  <p><%= data[index].lastName %> </p>
+
+ <figure>  <%= data[index].photo %> </figure>
+</a>
+</ul>
+
+<% } %>
