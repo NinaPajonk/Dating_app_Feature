@@ -5,6 +5,7 @@ const path = require('path');
 const slug = require('slug');
 const bodyParser = require('body-parser');
 const multer = require('multer');
+const session = require('express-session');
 
 // MongoDB
 const mongo = require('mongodb');
@@ -31,9 +32,15 @@ mongo.MongoClient.connect(url, function(err, client) {
 
 //
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use('/static', express.static('static'));
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: true
+}))
 app.set('view enigine', 'ejs');
 app.set('views', 'view');
-app.use('/static', express.static('static'));
+
 
 // home pagina
 app.get('/index', (req, res) =>
