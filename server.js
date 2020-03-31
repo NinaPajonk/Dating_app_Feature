@@ -22,10 +22,10 @@ mongo.MongoClient.connect(url, function(err, client) {
   db = client.db(process.env.DB_NAME);
 });
 
-
 //
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/static', express.static('static'));
+
 // session
 app.use(session({
   secret: process.env.SESSION_SECRET,
@@ -59,9 +59,15 @@ app.get('/findlove',gebruiker1)
 app.get('/', (req, res) => res.render('match.ejs', { data }));
 
 app.get('/start',gebruikers)
-
+// matches overzicht
 app.get('/matches',overzichtMatches)
+// error404
+app.get('/*', error404);
 
+// Bij een 404
+function error404(req, res) {
+  res.render('404');
+}
 // function pagina gebruiker 1
 function gebruiker1 (req, res){
   db.collection('Users').find({}).toArray(done)
