@@ -23,16 +23,10 @@ mongo.MongoClient.connect(url, function(err, client) {
 });
 
 
-// gebruiker kiezen (session nog toevoegen)
-// function startPage(req, res, next) {
-//   res.render('start.ejs');
-// }
-// app.get('/login', startPage);
-
-
 //
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/static', express.static('static'));
+// session
 app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
@@ -60,6 +54,14 @@ app.get('/detail', (req, res) =>
 // route naar ejs. Renderen
 // app.get('/detail1', (req, res) => res.render('detail.ejs', { data }));
 app.get('/findlove',gebruiker1)
+
+// route naar geliked Renderen
+app.get('/', (req, res) => res.render('match.ejs', { data }));
+
+app.get('/start',gebruikers)
+
+app.get('/matches',overzichtMatches)
+
 // function pagina gebruiker 1
 function gebruiker1 (req, res){
   db.collection('Users').find({}).toArray(done)
@@ -72,10 +74,6 @@ function gebruiker1 (req, res){
     }
     }
   }
-// route naar geliked Renderen
-app.get('/', (req, res) => res.render('match.ejs', { data }));
-
-app.get('/start',gebruikers)
 
 // function db
 function gebruikers (req, res){
@@ -89,7 +87,7 @@ function gebruikers (req, res){
     }
     }
   }
-  app.get('/matches',overzichtMatches)
+
 // function pagina gebruiker 1
 function overzichtMatches (req, res){
   db.collection('Users').find({}).toArray(done)
