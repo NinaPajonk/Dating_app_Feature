@@ -105,15 +105,33 @@ position: relative;
 margin-top: 20px;
 }
 
+/* buttons like, undo, no like */
+
 .likebut {
 top: -65px;
-width: 75px;
-height: 75px;
-margin-left: 40px;
+width: 60px;
+height: 60px;
 background-color: transparent;
 position: absolute;
+display: block;
+}
 
+.dislikebut {
+    top: -65px;
+    width: 60px;
+    height: 60px;
+    background-color: transparent;
+    position: absolute;
+        }
 
+#but1 {
+    margin-left: 20px;
+}
+#but2 {
+    margin-left: 190px;
+}
+#but3 {
+    margin-left: 370px;
 }
 
 /* desktop responsive website */
@@ -147,13 +165,22 @@ border-radius: 0;
     }
 
 .likebut {
-top: 450px;
+top: 400px;
 width: 75px;
 height: 75px;
 margin-left: 40px;
 background-color: transparent;
 position: absolute;
     }
+
+    .dilsikebut {
+        top: 400px;
+        width: 75px;
+        height: 75px;
+        margin-left: 40px;
+        background-color: transparent;
+        position: absolute;
+            }
 
 main > ul figure {
 height: 100%;

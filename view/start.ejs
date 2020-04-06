@@ -3,12 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="STYLESHEET" href="./static/styleProfiel.css" type="text/css"> 
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <%- include('head.ejs'); -%>
 </head>
 <body>
+
+    
+  
+    
   <img class="lobbie" src="./static/images/logo.png" alt="Logo">
   <title>Welkom<%= data.firstName %>!</title>
+<h1> Inlogscherm</h1>
+<h2>Selecteer je gebruikers naam</h2>
 
   <form action="/login" method="post">
     <label>  
@@ -21,7 +29,7 @@
 
         </select>
     </label>
-    <input type="submit">
+    <input type="submit"> 
 </form>
 </body>
 </html>

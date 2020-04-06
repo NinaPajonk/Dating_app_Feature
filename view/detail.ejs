@@ -36,10 +36,10 @@
   <h3><%= data[i].age %> </h3>
   <p><%= data[i].bio %></p>
 
-  <form action="/<%= data[i].id %>" method="post">
-  <button data-id="<%= data[i].id %>" class="likebut" type="button"> <img src="/static/images/no.png" alt="DislikeButton"> </button>
-  <button class="likebut" type="button"> <img src="/static/images/undo.png" alt="TerugButton"> </button>
-  <button data-id="<%= data[i].id %>" class="likebut" type="button"> <img src="/static/images/like.png" alt="LikeButton"> </button>
+  <form action= "/<%= data[i].id %>" method="post">
+  <button data-id= "<%= data[i].id %>" class="dislikebut" id="but1" type="button" name="disLikeButton"> <img src="/static/images/no.png" alt="DislikeButton"> </button>
+
+  <button data-id= "<%= data[i].id %>" class="likebut" id="but3" type="button" name="likeButton"> <img src="/static/images/like.png" alt="LikeButton"> </button>
                     
   </form>
 

@@ -7,12 +7,20 @@ const bodyParser = require('body-parser');
 const multer = require('multer');
 const session = require('express-session');
 
-// MongoDB
+// bodyparser
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// ejs
+app.set('view enigine', 'ejs');
+app.set('views', 'view');
+
+// MongoDB Database
 const mongo = require('mongodb');
 require('dotenv').config();
 
-// Database
 let db = null;
+let userid = null;
+let usersCollection = null;
 const url ='mongodb+srv://asd123:asd123@cluster0-ofs74.mongodb.net/test?retryWrites=true&w=majority'
 
 mongo.MongoClient.connect(url, function(err, client) {
@@ -20,54 +28,52 @@ mongo.MongoClient.connect(url, function(err, client) {
     throw err;
   }
   db = client.db(process.env.DB_NAME);
+  console.log("Verbinden met de database");
+  usersCollection = db.collection("Users");
+  
 });
 
-//
-app.use(bodyParser.urlencoded({ extended: true }));
+// de static files folder
 app.use('/static', express.static('static'));
 
-// session
+// session werkt nog niet!!!! source: https://github.com/expressjs/session
 app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: true
 }))
-app.set('view enigine', 'ejs');
-app.set('views', 'view');
 
-
-// home pagina
-app.get('/index', (req, res) =>
-  res.sendfile(path.join(`${__dirname}/static/index.html`))
-);
-
-// route naar about pagina
-app.get('/about', (req, res) =>
-  res.sendfile(path.join(`${__dirname}/static/about.html`))
-);
-
-// route naar detail pagina
-app.get('/detail', (req, res) =>
-  res.sendfile(path.join(`${__dirname}/static/detail.html`))
-);
-
-// route naar ejs. Renderen
-// app.get('/detail1', (req, res) => res.render('detail.ejs', { data }));
+// ROUTE NAAR EJS RENDEREN 
+// pagina om gebruiker te kiezen
+app.get('/',gebruikers)
+// pagina met alle profielen
 app.get('/findlove',gebruiker1)
-
-// route naar geliked Renderen
-app.get('/', (req, res) => res.render('match.ejs', { data }));
-
-app.get('/start',gebruikers)
 // matches overzicht
 app.get('/matches',overzichtMatches)
-// error404
-app.get('/*', error404);
+// na dat je gebruiker hebt gekozen
+app.post("/login", inloggen);
+// liken
+app.post("/:id", like);
 
-// Bij een 404
-function error404(req, res) {
-  res.render('404');
+
+// wanneer je bent ingelogd kom je op de findlove pagina
+function inloggen(req, res, next) {
+  req.session.currentUser = req.body.user;
+  userid = req.session.currentUser;
+  userCollection = db.collection("users" + userid);
+  res.redirect("findlove");
+  console.log("Je bent ingelogd! Find true LOVE!! " + userid);
 }
+
+
+// function like. Update One. source:  https://docs.mongodb.com/manual/reference/method/db.collection.updateOne/#db.collection.updateOne
+function like (req, res, next) {
+  let id = req.params.id;
+UsersCollection.updateOne({id: userid}, {$push: {"hasLiked": id}});
+}
+  // toevoegen aan gebruikers collectie
+  UsersCollection.findOne({id : id}, addToCollection)
+
 // function pagina gebruiker 1
 function gebruiker1 (req, res){
   db.collection('Users').find({}).toArray(done)
@@ -81,7 +87,7 @@ function gebruiker1 (req, res){
     }
   }
 
-// function db
+// function start
 function gebruikers (req, res){
   db.collection('Users').find({}).toArray(done)
   function done(err, data){
@@ -89,7 +95,7 @@ function gebruikers (req, res){
       next (err)
     } else {
       console.log(data);
-    res.render('add.ejs',{data: data})
+    res.render('start.ejs',{data: data})
     }
     }
   }
@@ -105,7 +111,6 @@ function overzichtMatches (req, res){
     res.render('match.ejs',{data: data})
     }
     }
-  }
   
-
+  }
 app.listen(port, () => console.log(`Example app listening on port${port}`));
