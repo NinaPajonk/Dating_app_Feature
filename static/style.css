@@ -1,0 +1,76 @@
+/*.............mobile first................*/
+
+.lobbie {
+    width: 120px;
+    margin-top: 10%;
+}
+
+/*.......Avatar foto....*/
+main img {
+    width: 300px;
+    display: block;
+    margin: auto;
+    padding-top: 10px;
+    position: relative;
+}
+
+/*.......onderste knoppen....*/
+main div img {
+    width: 40px;
+    position: relative;
+}
+
+div {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+position: relative;
+}
+
+main h1 {
+    color: white;
+    text-align: center;
+    position: relative;
+    font-size: 40px;
+    font-family: monospace;
+}
+
+main h2 {
+    color: white;
+    font-size: 25px;
+    position: relative;
+text-align: center;
+    font-family: monospace;
+}
+
+
+/*.............matches................*/
+.matches {
+    margin-top: -400px;
+    margin-bottom: 150px;
+    position: relative;
+}
+
+.matches:hover {  transform: skew(20deg);
+ animation: shake 2s infinite;
+  animation-direction: alternate;
+ }
+
+
+
+/*.............Tabbalk................*/
+.tab {
+    width: 40px;
+    margin: 25px;
+}
+
+footer {
+    border-top: 0.5px solid;
+    border-color: yellow;
+    margin-top: 15px;
+}
+
+/*.............responsive desktop................*/
+
+@media screen and (min-width: 600px) {}

@@ -69,10 +69,10 @@ function inloggen(req, res, next) {
 // function like. Update One. source:  https://docs.mongodb.com/manual/reference/method/db.collection.updateOne/#db.collection.updateOne
 function like (req, res, next) {
   let id = req.params.id;
-UsersCollection.updateOne({id: userid}, {$push: {"hasLiked": id}});
+usersCollection.updateOne({id: userid}, {$push: {"hasLiked": id}});
 }
-  // toevoegen aan gebruikers collectie
-  UsersCollection.findOne({id : id}, addToCollection)
+  // // toevoegen aan gebruikers collectie
+  // usersCollection.findOne({id : id}, addToCollection)
 
 // function pagina gebruiker 1
 function gebruiker1 (req, res){
