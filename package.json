@@ -29,7 +29,7 @@
     "camelcase": "^5.3.1",
     "dotenv": "^8.2.0",
     "ejs": "^3.0.1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-session": "^1.17.0",
     "mongodb": "^3.5.5",
     "multer": "^1.4.2",
